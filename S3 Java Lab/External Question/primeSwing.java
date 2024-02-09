@@ -1,3 +1,0 @@
-/*
-Write a program based on swing to read a number through a text box and display prime or no
-*/

@@ -1,3 +1,0 @@
-/*
-Write a Java Program That Implements Doubly Linked List.
-*/
