@@ -1,62 +1,84 @@
-#include<stdio.h>
-#include<stdlib.h>
+#include <stdio.h>
+#define SIZE 10
 
-#define table_size 10
-
-struct hashNode 
+// Function to calculate the hash value
+int hash(int key)
 {
-    int key;
-    int value;
-};
-
-struct hashTable
-{
-    struct hashNode * array[table_size];
-};
-
-int hashFunction(int key)
-{
-    return key*table_size;
+    return key % SIZE;
 }
 
-void insertLInearPRobing(struct hashTable* table,int key,int value)
+// Function to insert a key into the hash table
+void insert(int hashTable[], int key)
 {
-    int index=hashFunction (key);
+    int index = hash(key); // Calculate the hash value
 
-    while(table->array[index] !=NULL)
+    // Linear probing
+    while (hashTable[index] != -1) // If the slot is not empty
     {
-        index=(index+1)% table_size;
+        index = (index + 1) % SIZE; // Move to the next slot
     }
 
-    struct hashNode *newNode;
-    newNode=malloc(sizeof(struct hashNode));
-    newNode->key=key;
-    newNode->value=value;
-    table->array[index] =newNode;
+    hashTable[index] = key; // Insert the key into the hash table
 }
-void print (struct hashTable *table)
+
+// Function to search for a key in the hash table
+int search(int hashTable[], int key)
 {
-    for(int i=0;i<table_size;i++)
+    int index = hash(key); // Calculate the hash value
+
+    // Linear probing
+    while (hashTable[index] != key)
     {
-        if(table->array[i]!=NULL)
+        if (hashTable[index] == -1) // If the slot is empty
         {
-            printf("chain[%d]->%d",table->array[i]->key);
-
+            return -1; // Key not found
         }
-        else
-        {
-             printf("chain[%d]->NULL",i);
+        index = (index + 1) % SIZE; // Move to the next slot
+    }
 
-        }
+    return index; // Return the index where the key is found
+}
+
+// Function to display the hash table
+void display(int hashTable[])
+{
+    printf("Hash Table:\n");
+    for (int i = 0; i < SIZE; i++)
+    {
+        printf("%d: %d\n", i, hashTable[i]);
     }
 }
-void main()
+
+int main()
 {
-    struct HashTable ;
-    for(int i=0;i<table_size;i++)
+    int hashTable[SIZE];
+
+    // Initialize the hash table with -1 (empty slots)
+    for (int i = 0; i < SIZE; i++)
     {
-        HashTable.array[i]=NULL;
+        hashTable[i] = -1;
     }
 
-    insertLInearPRobing(&HashTable,12,120);
+    // Insert keys into the hash table
+    insert(hashTable, 5);
+    insert(hashTable, 15);
+    insert(hashTable, 25);
+    insert(hashTable, 35);
+
+    // Search for a key in the hash table
+    int key = 25;
+    int index = search(hashTable, key);
+    if (index != -1)
+    {
+        printf("Key %d found at index %d\n", key, index);
+    }
+    else
+    {
+        printf("Key %d not found\n", key);
+    }
+
+    // Display the hash table
+    display(hashTable);
+
+    return 0;
 }

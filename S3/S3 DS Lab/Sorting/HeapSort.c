@@ -1,5 +1,3 @@
-
-
 #include <stdio.h>
 
 // Function to perform heapify on a subtree rooted at 'root'
@@ -68,4 +66,3 @@ int main() {
 
     return 0;
 }
-
