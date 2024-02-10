@@ -1,33 +1,46 @@
-java program to throw exception whenever customer balance is below 1000
-
-class BalanceException extends Exception {
-    public BalanceException(String message) {
-        super(message);
-    }
-}
-
+// Represents a customer's account with a balance and minimum threshold
 class Customer {
     private int balance;
 
-    public Customer(int balance) {
-        this.balance = balance;
+    // Creates a customer with a balance, ensuring it's not negative
+    public Customer(int initialBalance) {
+        if (initialBalance < 0) {
+            throw new IllegalArgumentException("Balance cannot be negative.");
+        }
+        this.balance = initialBalance;
     }
 
-    public void checkBalance() throws BalanceException {
+    // Checks if the customer's balance meets the minimum threshold, throwing an exception if not
+    public void checkBalance() throws InsufficientBalanceException {
         if (balance < 1000) {
-            throw new BalanceException("Customer balance is below 1000");
+            throw new InsufficientBalanceException("Balance is below the minimum of 1000.");
         }
     }
 }
 
-public class Main {
+// Specific exception for insufficient balance
+class InsufficientBalanceException extends Exception {
+    public InsufficientBalanceException(String message) {
+        super(message);
+    }
+}
+
+// Main method to test the Customer class
+public class bal {
     public static void main(String[] args) {
-        Customer customer = new Customer(500);
         try {
+            // Create a customer with a starting balance of 500
+            Customer customer = new Customer(500);
+
+            // Attempt to check the balance (will throw an exception)
             customer.checkBalance();
-            System.out.println("Balance is above 1000");
-        } catch (BalanceException e) {
-            System.out.println(e.getMessage());
+
+            // This line won't execute if there's an exception
+            System.out.println("Balance is above 1000."); // For demonstration
+
+        } catch (InsufficientBalanceException e) {
+            // Handle the exception by printing the error message
+            System.out.println(e.getMessage()); // Prints: "Balance is below the minimum of 1000."
         }
     }
 }
