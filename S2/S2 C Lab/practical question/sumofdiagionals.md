@@ -1,1 +1,0 @@
-find the sum of main diagonal in n size matrix
