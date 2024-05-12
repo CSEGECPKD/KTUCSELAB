@@ -135,7 +135,7 @@ Page replacement algorithms are used in virtual memory systems to decide which p
 
 Disk scheduling algorithms control the order in which disk I/O requests are serviced by the disk controller. Examples include SCAN, C-SCAN, FIFO (First In, First Out), and SSTF (Shortest Seek Time First).
 
-### write about fcfs sjf and priority and round robin 
+## write about fcfs sjf and priority and round robin 
 ### FCFS (First-Come, First-Served):
 Explanation: FCFS schedules processes based on their arrival time. The process that arrives first gets executed first. Once a process starts execution, it continues until it completes.
 Advantages: Simple to implement and understand.
