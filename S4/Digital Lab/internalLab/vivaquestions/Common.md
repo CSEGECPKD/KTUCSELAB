@@ -1,4 +1,5 @@
-
+# first  rule is study Lsd subject of s3 most of the question will be from it 
+mostly likely it will be written exam as in 2024 batch 
 ### Difference between combinational and sequential circuit:
 Combinational Circuit: These circuits have outputs that depend only on the current input signals. They don't have any memory elements, so their outputs are solely determined by the present inputs.
 Sequential Circuit: These circuits have memory elements (like flip-flops) which allow them to store information. The outputs depend not only on the present input but also on the past sequence of inputs. They have a feedback path which allows them to exhibit "memory" or sequential behavior.
