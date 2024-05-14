@@ -229,3 +229,67 @@ Explanation: LRU replaces the least recently used page in memory with the new pa
 
 ### LFU (Least Frequently Used):
 Explanation: LFU replaces the page with the lowest frequency of use in memory with the new page. It aims to remove pages that are accessed infrequently, but it requires additional bookkeeping to track page usage frequencies.
+
+## Inter-Process Communication (IPC)
+
+IPC refers to mechanisms that allow processes on a computer system to exchange information and coordinate their actions.  Without IPC, processes would operate in isolation, unable to share data or collaborate.  Here are some common IPC mechanisms:
+
+* **Shared Memory:** Processes access a designated memory region for direct data exchange.
+* **Message Passing:** Processes send and receive messages through channels like pipes or queues.
+* **Signals:** Processes send short notifications to each other to trigger events.
+* **Semaphores:** Synchronization objects used to control access to shared resources like memory.
+
+## Shared Memory in IPC
+
+Shared memory is a technique where two or more processes can access and modify the same portion of memory. This allows for efficient data exchange, as processes can directly read and write to the shared memory region without needing to copy data through other mechanisms.
+
+
+1. **Creating a Shared Memory Segment:** The operating system allocates a block of memory that can be accessed by multiple processes.
+2. **Attaching Processes:** Processes explicitly attach themselves to the shared memory segment, allowing them to access the allocated memory region.
+3. **Data Access:** Processes can read from and write to the shared memory location, enabling direct data exchange.
+4. **Detaching Processes:** When finished, processes detach themselves from the shared memory segment, releasing their access.
+5. **Synchronization:** Since multiple processes can access the shared memory concurrently, synchronization mechanisms (like semaphores) are often necessary to prevent data corruption or race conditions.
+
+
+## Advantages of Shared Memory
+
+* **Fast Data Exchange:** Direct memory access allows for efficient data transfer between processes.
+* **Fine-Grained Control:** Processes can access specific portions of the shared memory for data exchange.
+* **Suitable for Large Data Structures:** Shared memory is efficient for sharing large data structures that would be expensive to copy through other methods.
+
+
+## Disadvantages of Shared Memory
+
+* **Complexity:** Setting up and managing shared memory segments can be more complex compared to message passing.
+* **Synchronization Issues:**  Race conditions can occur if multiple processes try to access the shared memory concurrently without proper synchronization.
+* **Limited Scope:** Shared memory is typically restricted to processes on the same machine due to memory management challenges across networks.
+* **Security Concerns:** Improper access control can lead to security vulnerabilities if untrusted processes share memory.
+
+
+## Shared Memory vs. Message Passing
+
+Both shared memory and message passing are common IPC techniques, but they differ in their approach:
+
+* **Shared Memory:** Processes directly access the same memory location. It's like having a shared whiteboard where anyone can write or read information.
+* **Message Passing:** Processes communicate by sending and receiving messages through predefined channels. It's like sending messages through mailboxes, where processes don't directly access each other's data.
+
+**Choosing the right approach depends on factors like:**
+
+* **Data Size:** Shared memory is efficient for large data structures.
+* **Synchronization Needs:** Shared memory requires careful synchronization, while message passing handles it inherently.
+* **Communication Pattern:** Message passing is more suitable for request-response or asynchronous communication.
+
+
+## Race Conditions in Shared Memory
+
+Race conditions occur when multiple processes access the shared memory concurrently and the outcome depends on the unpredictable timing of those accesses. This can lead to data corruption or unexpected behavior.
+
+For example, imagine two processes trying to increment a counter in shared memory:
+
+1. Process A reads the counter value (say, 10).
+2. Process B reads the same value (10).
+3. Process A increments its local copy (now 11).
+4. Process B increments its local copy (now 11).
+5. Process A writes its updated value (11) back to shared memory.
+6. Process B writes its updated value (11) back to shared memory (overwriting A's update).
+
