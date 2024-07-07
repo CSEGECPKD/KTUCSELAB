@@ -1,3 +1,5 @@
+** i dont own the pdf above at all plz contact us if any thing happens
+
 Welcome to #KTUCSELAB!
 
 This repository hosts KTU lab viva, external practical questions, and practical record PDFs for B.Tech Computer Science students. Every semester, we encourage fellow students to contribute, benefiting both current students and future juniors. By contributing, you're also enriching GitHub's knowledge base.
