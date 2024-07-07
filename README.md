@@ -8,5 +8,5 @@ This repository hosts KTU lab viva, external practical questions, and practical 
 3. Submit a pull request and merge your changes.
 4. That's it! Thank you for your contribution to the repository.
 
-[![](https://opencollective.com/html-react-parser/contributors.svg?width=890&button=false)](https://github.com/remarkablemark/html-react-parser/graphs/contributors)
+
 
