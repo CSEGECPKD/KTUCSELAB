@@ -9,3 +9,5 @@ Important viva questions
 7.convert binary number to gray code
 8.characteristic table of sr,jk, d, and t flip-flops.
 9.application of counter.
+
+* https://youtu.be/cYu20KpEghc?si=U3yjTUhdsk0QFbkT
