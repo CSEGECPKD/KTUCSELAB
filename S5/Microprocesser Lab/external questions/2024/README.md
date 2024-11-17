@@ -1,10 +1,5 @@
-Welcome to #KTUCSELAB!
-
-This repository hosts KTU lab viva, external practical questions, and practical record PDFs for B.Tech Computer Science students. Every semester, we encourage fellow students to contribute, benefiting both current students and future juniors. By contributing, you're also enriching GitHub's knowledge base.
-
-**How to Contribute:**
-1. Fork the repository.
-2. Add new questions or records.
-3. Submit a pull request and merge your changes.
-4. That's it! Thank you for your contribution to the repository.
-
+1.Count of even numbers from N given numbers(kit)
+2.Concatenation of strings(masm)
+3.Replace a character in a string (masm)
+4.Count of multiple of 3 from N given numbers(kit)
+5.find the average of odd number from a given n numbers 
